@@ -8,11 +8,12 @@
     
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+        <script src="./js/confetti.js"  type="text/javscript"></script>
     
     </head>
-    <body>
+    <body class="bodyWrapper">
         <!-- MAIN CONTENT -->
-        <div id="container">
+        <div id="googleContainer">
             <section id="searchFormPage">
                 <div class="brand-img-wrapper">
                     <a href="#" title="Go to Google Home" id="logo">
@@ -28,7 +29,7 @@
                 <div class="search-optns-wrapper">
                     <div>
                         <input class="search-submit-btn" value="Google Search" aria-label="Google Search" name="btnK" type="submit"> 
-                        <input class="imfeelinglucky-btn" value="Im Feeling Lucky" aria-label="Im Feeling Lucky" name="btnI">
+                        <input class="birthdaywish-btn" value="Im Feeling Lucky" aria-label="Im Feeling Lucky" name="btnI">
                     </div>
                 </div>
             </section>
@@ -124,33 +125,36 @@
                                             <div class="people-also-ask-txt">People also ask</div>
                                             <div class="panel-group" id="accordion">
                                                     <div class="panel panel-default">
-                                                      <div class="panel-heading">
+                                                      <div class="panel-heading flex-space-between">
                                                         <h4 class="panel-title">
                                                           <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
                                                             Is Shraddha Bhattad single?</a>
                                                         </h4>
+                                                        <span class="vp45yf z1asCe bjaP2b" style="right:16px"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path></svg></span>
                                                       </div>
                                                       <div id="collapse1" class="panel-collapse collapse in">
                                                         <div class="panel-body">She is already very cool to an awesome guy & is getting married in 2020. Please stay away from her.</div>
                                                       </div>
                                                     </div>
                                                     <div class="panel panel-default">
-                                                      <div class="panel-heading">
+                                                      <div class="panel-heading flex-space-between">
                                                         <h4 class="panel-title">
                                                           <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
                                                           Which is Shraddha Bhattad's favourite tv series?</a>
                                                         </h4>
+                                                        <span class="vp45yf z1asCe bjaP2b" style="right:16px"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path></svg></span>
                                                       </div>
                                                       <div id="collapse2" class="panel-collapse collapse">
                                                         <div class="panel-body">She is a big F.R.I.E.N.D.S fan</div>
                                                       </div>
                                                     </div>
                                                     <div class="panel panel-default">
-                                                      <div class="panel-heading">
+                                                      <div class="panel-heading flex-space-between">
                                                         <h4 class="panel-title">
                                                           <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
                                                           Are Shraddha Kapoor and Shraddha Bhattad related?</a>
                                                         </h4>
+                                                        <span class="vp45yf z1asCe bjaP2b" style="right:16px"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"></path></svg></span>
                                                       </div>
                                                       <div id="collapse3" class="panel-collapse collapse">
                                                         <div class="panel-body">No. Shraddha Bhattad is way more gorgeous than Shraddha Kapoor.</div>
@@ -164,7 +168,7 @@
                                     </div>
                                 </div>
                                 <div class="images-results" style="display: none;">
-                                    <div class="col-lg-2 col-md-2 col-sm-2 img-wrapper-template" style="display: none;">
+                                    <div class="img-wrapper-template" style="display: none;">
                                         <img class="imgElm" src="" >
                                     </div>
                                 </div>
@@ -175,17 +179,17 @@
                     </div>
                 </div>
             </section>
-            <section id="birthdayPage" style="display: none;">
-                <section id="home">
-                    <input type="text" />
-                    <span
-                        class="txt-rotate"
-                        data-period="2000"
-                        data-rotate='[ "She is Gorgeous", "She is lazy", "She is beautiful", "She is my bae", "Its her birthday today" ]'>
-                    </span>
-                </section>
-            </section>
         </div>
+
+        <section id="birthdayPage" style="display: none;">
+            <div id="home"> 
+                <span
+                    class="txt-rotate"
+                    data-period="2000"
+                    data-rotate='[ "Happiest birthday to my favorite person" ]'>
+                </span>
+            </div>
+        </section>
         <script type="text/javascript" src="./js/typeahead-animate.js"></script>
         <script type="text/javascript" src="./script.js"></script>
     </body>
