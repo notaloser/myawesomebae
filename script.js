@@ -263,7 +263,7 @@ var processSearchResponse = function(inputVal) {
 }
 
 searchButton.click(function() {
-    processSearchResponse();
+    processSearchResponse(searchInput.val());
 });
 
 var playAudio = function() {
