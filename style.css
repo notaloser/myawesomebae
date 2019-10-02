@@ -9,10 +9,10 @@ html,body {
     font-weight: 200;
     margin: 0.4em 0;
   }
-  h1 { font-size: 3.5em; }
-  h2 {
-    color: #888;
-    font-size: 2em;
+  h1 { 
+    font-size: 3.5em; 
+    color: #aaa;
+    font-weight: 200;
   }
 
   #home {
@@ -238,8 +238,11 @@ html,body {
 }
 
 .info-values span {
-  font-weight: bold;
-  font-family: arial,sans-serif;
+  font-size: 14px; 
+}
+
+.info-values-header {
+  font-weight: bolder;
 }
 
 .flex-space-between {
@@ -260,17 +263,24 @@ html,body {
   font-weight: normal;
   margin: 0;
   border: 1px solid #dfe1e5;
+  border-bottom: none;
   border-radius: 6px;
 }
 
 .panel-group .panel+.panel {
-  margin-top: 0px; 
+  margin-top: 0px;
+  border-bottom: none;
+}
+
+.panel-default>.panel-heading+.panel-collapse>.panel-body {
+  border-top: none !important;
 }
 
 .panel-default>.panel-heading {
   color: black;
   background-color: #ffffff;
   border: 1px solid #dfe1e5;
+  border-bottom: none;
 }
 
 .img-wrapper img {
@@ -342,4 +352,132 @@ html,body {
 
 .confettiBgColor {
   background-color: #222;
+}
+
+.info-big-img {
+  height: 186px;
+  width: 97px;
+}
+
+.info-small-img {
+  width: 138px;
+  height: 92px;
+}
+
+.info1-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.info2-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.info3-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.all-results {
+  display: flex;
+}
+
+.wiki-info-name-txt {
+  color: rgba(0,0,0,.87);
+    line-height: 1.2;
+    overflow: hidden;
+    font-family: arial,sans-serif-light,sans-serif;
+    display: inline;
+    font-size: 30px;
+    font-weight: normal;
+    position: relative;
+    transform-origin: left top;
+    transform-origin: left top;
+    word-wrap: break-word;
+}
+
+.wiki-sub-info-txt {
+  color: #70757a;
+  font-family: arial,sans-serif;
+  margin: 4px 0;
+  overflow: hidden;
+}
+
+.left-info, .right-info {
+ margin:  0 20px;
+}
+
+.right-info {
+  width: 510px;
+}
+
+.sub-info-wrapper {
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+
+.imgs-sub-info-wrapper {
+  border: 1px solid #dfe1e5;
+}
+
+.main-wiki-link {
+  color: #1a0dab;
+  font-size: 14px;
+}
+
+.main-wiki-info-txt {
+  font-size: 14px;
+  color: #222;
+}
+
+.main-wiki-content-wrapper {
+  padding: 15px;
+  border: 1px solid #dfe1e5;
+}
+
+.people-also-search-for {
+  color: #222;
+  line-height: 1.3;
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+.people-search-for-img-wrapper {
+  display: flex;
+}
+
+.people-search-for-div {
+  display: flex;
+  flex-direction: column;
+  width: 72px;
+  margin: 10px;
+}
+
+.people-search-for-img {
+  height: 72px;
+  width: 72px;
+}
+
+.people-search-for-name {
+  color: #1a0dab;
+  font-size: 14px;
+}
+
+.panel-body {
+  font-size: 16px;
+}
+
+.panel-title a:hover, .panel-title a:hover,  .panel-title a:active{
+  text-decoration: none !important;
+}
+
+.animated-txt {
+  max-width: 600px;
+  text-align: center;
+}
+
+.birthday {
+  color: #1a0dab;
 }

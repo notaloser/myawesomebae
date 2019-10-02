@@ -266,9 +266,15 @@ searchButton.click(function() {
     processSearchResponse();
 });
 
+var playAudio = function() {
+  var audioElm = document.getElementById("myAudio"); 
+  audioElm.play();
+};
+
 birthdayWishBtn.click(function() {
     console.log("Clicked on birthday wish button");
-    containerElm.fadeOut();
+    playAudio();
+    containerElm.hide();
     birthdayPage.show();
     poof();
 });
