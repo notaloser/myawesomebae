@@ -9,8 +9,12 @@ var searchResultInput = searchResultPage.find(".search-result-page-input");
 var searchButton = searchFormPage.find(".search-submit-btn");
 var birthdayWishBtn = searchFormPage.find(".birthdaywish-btn");
 
-var validSearchTerms = ["shraddha", "shraddha bhattad", "shraddhabhattad"];
-var imagesArr = ["pic-1.jpeg", "pic-2.jpeg", "pic-3.jpg", "pic-4.jpeg", "pic-5.jpeg", "pic-6.jpg", "pic-7.jpg"];
+var validSearchTerms = ["sonal", "Sonal Faujdar", "sonalfaujdar"];
+var imagesArr = ["assets/IMG-20181126-WA0008.jpg", "assets/IMG-20190427-WA0005.jpg", "assets/IMG_20181110_041809.jpg", 
+"assets/IMG_20181112_195304.jpg", "assets/IMG_20190228_164053.jpg", "assets/IMG_20190228_164803.jpg", "assets/IMG-20180922-WA0002.jpg",
+"assets/IMG-20181103-WA0019.jpg", "assets/IMG-20181121-WA0000.jpg", "assets/IMG-20181201-WA0013.jpg", "assets/IMG-20190110-WA0009.jpg",
+"assets/IMG-20190110-WA0010.jpg","assets/IMG-20190221-WA0016.jpg", "assets/IMG-20190223-WA0004.jpg", "assets/IMG-20190427-WA0005.jpg",
+"assets/IMG-20190428-WA0011.jpg", "assets/IMG-20181101-WA0005.jpg", "assets/pic-1.jpg"];
 var exactMatch = false;
 var inputVal = "";
 var birthdayPage = bodyWrapper.find("#birthdayPage");
@@ -375,7 +379,7 @@ searchResultPage.find(".info1-wrapper").click(function() {
 
 
 searchResultPage.find(".suggested-txt").click(function() {
-    processSearchResponse("shraddha")
+    processSearchResponse("Sonal")
 });
 
 searchInput.on('keypress',function(e) {
@@ -397,7 +401,7 @@ var populateImages = function() {
     var imgWrapperTemplate = imgResultsPage.find(".img-wrapper-template");
     $.each(imagesArr, function (index, imgName) {
         var imgDiv = imgWrapperTemplate.clone().removeClass("img-wrapper-template").addClass("img-wrapper").insertBefore(imgWrapperTemplate).show();
-        var imgPath = "./assets/" + imgName;
+        var imgPath = "./" + imgName;
         imgDiv.find(".imgElm")[0].src = imgPath;
     });
 };
@@ -410,6 +414,7 @@ var showSearchResultsPage = function(inputVal) {
     searchResultPage.find(".searchResultsNotValidWrapper").hide();
     setTimeout(function() {
         searchResultPage.find(".searchLoader").hide();
+        console.log(exactMatch);
         if (exactMatch) {
             searchResultPage.find(".searchResultsValidContentWrapper").show().siblings().hide();
             searchResultPage.find(".all").addClass("tab-selected").siblings().removeClass("tab-selected");
