@@ -10,7 +10,7 @@ var searchButton = searchFormPage.find(".search-submit-btn");
 var birthdayWishBtn = searchFormPage.find(".birthdaywish-btn");
 
 var validSearchTerms = ["shraddha", "shraddha bhattad", "shraddhabhattad"];
-var imagesArr = ["pic-1.jpeg", "pic-2.jpeg", "pic-3.jpeg", "pic-4.jpeg", "pic-5.jpeg", "pic-6.jpg", "pic-7.jpg"];
+var imagesArr = ["pic-1.jpeg", "pic-2.jpeg", "pic-3.jpg", "pic-4.jpeg", "pic-5.jpeg", "pic-6.jpg", "pic-7.jpg"];
 var exactMatch = false;
 var inputVal = "";
 var birthdayPage = bodyWrapper.find("#birthdayPage");
@@ -247,6 +247,70 @@ $("#confettiId").click(function() {
 
 /*********************************************************************************/
 
+
+/*******************Typeahead JS************ */
+
+var TxtRotate = function(el, toRotate, period) {
+  this.toRotate = toRotate;
+  this.el = el;
+  this.loopNum = 0;
+  this.period = parseInt(period, 10) || 2000;
+  this.txt = '';
+  this.tick();
+  this.isDeleting = false;
+};
+
+TxtRotate.prototype.tick = function() {
+var i = this.loopNum % this.toRotate.length;
+var fullTxt = this.toRotate[i];
+
+if (this.isDeleting) {
+  this.txt = fullTxt.substring(0, this.txt.length - 1);
+} else {
+  this.txt = fullTxt.substring(0, this.txt.length + 1);
+}
+
+this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+var that = this;
+var delta = 200 - Math.random() * 100;
+
+if (this.isDeleting) { delta /= 2; }
+
+if (!this.isDeleting && this.txt === fullTxt) {
+  delta = this.period;
+  this.isDeleting = true;
+} else if (this.isDeleting && this.txt === '') {
+  this.isDeleting = false;
+  this.loopNum++;
+  delta = 1000;
+}
+
+setTimeout(function() {
+  that.tick();
+}, delta);
+};
+
+var startTypeAhead = function() {
+  var elements = document.getElementsByClassName('txt-rotate');
+  for (var i=0; i<elements.length; i++) {
+    var toRotate = elements[i].getAttribute('data-rotate');
+    var period = elements[i].getAttribute('data-period');
+    if (toRotate) {
+      new TxtRotate(elements[i], JSON.parse(toRotate), period);
+    }
+  }
+  // INJECT CSS
+  var css = document.createElement("style");
+  css.type = "text/css";
+  css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+  document.body.appendChild(css);
+};
+
+
+
+/**************************************** */
+
 /****************Google container**********/
 
 setTimeout(function() {
@@ -254,13 +318,35 @@ setTimeout(function() {
 }, 500);
 
 var processSearchResponse = function(inputVal) {
+    if (inputVal === "") {
+      return;
+    }
     if (validSearchTerms.indexOf(inputVal.toLowerCase()) > -1) {
         exactMatch = true;
     } else {
         exactMatch = false;
     }
     showSearchResultsPage(inputVal);
-}
+};
+
+var loadBirthdayPage = function() {
+  playAudio();
+  containerElm.hide();
+  birthdayPage.show();
+  poof();
+  setTimeout(function() {
+    startTypeAhead();
+  }, 3000);
+};
+
+var showImages = function() {
+  searchResultPage.find(".images").addClass("tab-selected").siblings().removeClass("tab-selected");
+  searchResultPage.find(".images-results").show().siblings().hide();
+};
+
+searchResultPage.find(".birthday").click(function() {
+  loadBirthdayPage();
+});
 
 searchButton.click(function() {
     processSearchResponse(searchInput.val());
@@ -272,12 +358,21 @@ var playAudio = function() {
 };
 
 birthdayWishBtn.click(function() {
-    console.log("Clicked on birthday wish button");
-    playAudio();
-    containerElm.hide();
-    birthdayPage.show();
-    poof();
+  loadBirthdayPage();
 });
+
+searchResultPage.find(".wiki-info-wrapper").click(function() {
+  console.log("Clicked on wiki info wrapper");
+  $(".right-info").animate({
+    width: 'show',
+    easing: 'easein'
+  }, "slow");
+});
+
+searchResultPage.find(".info1-wrapper").click(function() {
+  showImages();
+});
+
 
 searchResultPage.find(".suggested-txt").click(function() {
     processSearchResponse("shraddha")
@@ -305,7 +400,7 @@ var populateImages = function() {
         var imgPath = "./assets/" + imgName;
         imgDiv.find(".imgElm")[0].src = imgPath;
     });
-}
+};
 
 var showSearchResultsPage = function(inputVal) {
     searchResultInput.val(inputVal);
@@ -332,8 +427,7 @@ searchResultPage.find(".all").click(function() {
 });
 
 searchResultPage.find(".images").click(function() {
-    searchResultPage.find(".images").addClass("tab-selected").siblings().removeClass("tab-selected");
-    searchResultPage.find(".images-results").show().siblings().hide();
+  showImages();
 });
 
 searchResultPage.find(".videos").click(function() {

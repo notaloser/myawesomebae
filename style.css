@@ -11,13 +11,15 @@ html,body {
   }
   h1 { 
     font-size: 3.5em; 
-    color: #aaa;
+    color: black;
     font-weight: 200;
   }
 
   #home {
       height: 100vh;
-      background: #222;
+      background-size: cover;
+      background-image: url("./assets/pic-1.jpeg");
+      /* background: #222; */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -279,8 +281,6 @@ html,body {
 .panel-default>.panel-heading {
   color: black;
   background-color: #ffffff;
-  border: 1px solid #dfe1e5;
-  border-bottom: none;
 }
 
 .img-wrapper img {
@@ -356,12 +356,17 @@ html,body {
 
 .info-big-img {
   height: 186px;
-  width: 97px;
+  width: 210px;
 }
 
-.info-small-img {
-  width: 138px;
-  height: 92px;
+.info-small-img-top {
+  width: 150px;
+  height: 93px;
+}
+
+.info-small-img-bottom {
+  width: 100px;
+  height: 93px;
 }
 
 .info1-wrapper {
@@ -473,6 +478,10 @@ html,body {
   text-decoration: none !important;
 }
 
+.panel-title {
+  width: 100%;
+}
+
 .animated-txt {
   max-width: 600px;
   text-align: center;
@@ -480,4 +489,17 @@ html,body {
 
 .birthday {
   color: #1a0dab;
+  cursor: pointer;
+}
+
+.panel {
+  border-bottom: none !important;
+}
+
+.wiki-info-wrapper {
+  cursor: pointer;
+}
+
+.info1-wrapper {
+  cursor: pointer;
 }
